@@ -2,30 +2,85 @@
 <html lang="en">
 
 <head>
-  <%- include('partials/header', {title: "Home-List"}) %>
+  <%- include('partials/header', {title: "Home-List" }) %>
+    <style>
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+      .mt-10, .Pagination{
+        margin-top: 80px;
+      }
+      .mbt-pagination{
+        margin-bottom: 80px;
+      }
+    </style>
 </head>
 
 <body>
   <!-- Navigation Bar -->
   <%- include('partials/navbar') %>
 
-  <!-- Movie List Page -->
-  <div class="container mt-4">
-    <h2>Movies</h2>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Year</th>
-          <th>Cover</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="movieListBody">
-        <% result.forEach(function(movie){ %>
+    <!-- Movie List Page -->
+    <div class="container">
+      <h1 class="mt-10">Welcome to Movie Shop <%= result.lenght %></h1>
+
+      <div class="row">
+        <% result.forEach(function(movie, index){ %>
+          <% if(result.lenght === 0) { %>
+            <div class="card-body">
+              <h5 class="card-title">Nothing show here :)</h5>
+            </div>
+          <% } %> 
+          <div class="col-md-3 mb-3">
+            <div class="card">
+              <img src="movie_cover/<%= movie.cover%>" class="card-img-top" alt="Movie <%= index%>">
+              <div class="card-body">
+                <h5 class="card-title"><%= movie.name%></h5>
+                <p class="card-text">Price: $9.99</p>
+                <a href="movie/<%= movie.id%>" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        <% result.forEach(function(movie, index){ %>
+          <div class="col-md-3 mb-3">
+            <div class="card">
+              <img src="movie_cover/<%= movie.cover%>" class="card-img-top" alt="Movie <%= index%>">
+              <div class="card-body">
+                <h5 class="card-title"><%= movie.name%></h5>
+                <p class="card-text">Price: $9.99</p>
+                <a href="movie/<%= movie.id%>" class="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+          <% }) %>
+        <!-- Repeat the card blocks for other movies -->
+      </div>
+      <nav aria-label="Movie Pagination" class="mbt-pagination">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+          </li>
+          <li class="page-item active" aria-current="page">
+            <a class="page-link" href="#">1</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">2</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">3</a>
+          </li>
+          <li class="page-item">
+            <a class="page-link" href="#">Next</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- <% result.forEach(function(movie){ %>
           <tr>
-              <td><%= movie.name %></td>
+              
               <td><%= movie.type %></td>
               <td><%= movie.year %></td>
               <td><%= movie.cover %></td>
@@ -35,14 +90,9 @@
                 <a href="/delete/<%= movie.id %>" class="btn btn-danger btn-sm">Delete</a>
               </td>
           </tr>
-        <% }) %>
-      </tbody>
-    </table>
-  </div>
+        <% }) %> -->
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+</body>
 
-
-  <!-- Footer -->
-  <%- include('partials/footer') %> 
-  </body>
-  
-  </html> 
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/header', {title: "Home-List"}) %>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Movie List Page -->
+  <div class="container mt-4">
+    <h2>Movies</h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Year</th>
+          <th>Cover</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="movieListBody">
+        <% result.forEach(function(movie){ %>
+          <tr>
+              <td><%= movie.name %></td>
+              <td><%= movie.type %></td>
+              <td><%= movie.year %></td>
+              <td><%= movie.cover %></td>
+              <td>
+                <a href="/movie/<%= movie.id %>" class="btn btn-success btn-sm">View</a>
+                <a href="/update/<%= movie.id %>" class="btn btn-primary btn-sm">Edit</a>
+                <a href="/delete/<%= movie.id %>" class="btn btn-danger btn-sm">Delete</a>
+              </td>
+          </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+
+  <!-- Footer -->
+  <%- include('partials/footer') %> 
+  </body>
+  
+  </html> 

@@ -31,9 +31,9 @@ app.get('/', function(req, res){
     let query = "Select * from movies"
     connection.query(query, function(err, result){
         if(err){
-            res.render("list",{message: 'We can\'t fetch movies', error: err})
+            res.render("index",{message: 'We can\'t fetch movies', error: err})
         }{
-            res.render("list",{message: "Object successfully fetched", result: result})
+            res.render("index",{message: "Object successfully fetched", result: result})
         }
     })
 })
