@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/header', {title: "Update" }) %>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <%- include('partials/navbar') %>
+
+    <div class="container mt-4 w-50">
+      <h2>Update Movie</h2>
+      <form id="updateForm">
+        <div class="mb-3">
+          <label for="updateMovieName" class="form-label">Movie Name</label>
+          <input type="text" class="form-control" id="updateMovieName" required>
+        </div>
+        <div class="mb-3">
+          <label for="updateMovieType" class="form-label">Movie Type</label>
+          <input type="text" class="form-control" id="updateMovieType" required>
+        </div>
+        <div class="mb-3">
+          <label for="updateMovieYear" class="form-label">Movie Year</label>
+          <input type="number" class="form-control" id="updateMovieYear" required>
+        </div>
+        <div class="mb-3">
+          <label for="updateMovieCover" class></label>
+          <div class="form-group">
+            <label for="updateMovieCover">Movie Cover Image</label>
+            <input type="file" class="form-control-file" id="updateMovieCover" accept="image/*">
+          </div>
+          <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <%- include('partials/footer') %>
+</body>
+
+</html>

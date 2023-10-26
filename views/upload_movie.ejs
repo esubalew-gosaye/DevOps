@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/header', {title: "Upload"}) %></head>
+
+<body>
+  <!-- Navigation Bar -->
+  <%- include('partials/navbar') %>
+
+  <!-- Movie Upload Page -->
+  <div class="container mt-5 form-container w-50">
+    <h2>Upload Movie</h2>
+    <form id="uploadForm" method="post" action="/create" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="movieName" class="form-label">Movie Name</label>
+        <input type="text" name="name" class="form-control" id="movieName" required>
+      </div>
+      <div class="mb-3">
+        <label for="movieType" class="form-label">Movie Type</label>
+        <input type="text" name="type" class="form-control" id="movieType" required>
+      </div>
+      <div class="mb-3">
+        <label for="movieYear" class="form-label">Movie Year</label>
+        <input type="number" name="year" class="form-control" id="movieYear" required>
+      </div>
+      <div class="mb-3">
+        <label for="movieCover" class="form-label">Movie Cover Image</label>
+        <input type="file" name="cover" class="form-control" id="movieCover" accept="image/*" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+  </div>
+  <!-- Footer -->
+  <%- include('partials/footer') %> </body>
+  
+  </html> 

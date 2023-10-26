@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('partials/header', {title: "Login"}) %>
+</head>
+
+<body>
+  <!-- Navigation Bar -->
+  <%- include('partials/navbar') %>
+
+    <!-- Login Page -->
+    <div class="container mt-5 w-50">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="username" class="form-label">Username</label>
+          <input type="text" class="form-control" id="username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+    <!-- Footer -->
+    <%- include('partials/footer') %> 
+  </body>
+  
+  </html> 
