@@ -2,31 +2,50 @@
 <html lang="en">
 
 <head>
-  <%- include('partials/header', {title: "Upload"}) %></head>
+  <%- include('partials/header', {title: "Upload"}) %>
+
+</head>
 
 <body>
   <!-- Navigation Bar -->
   <%- include('partials/navbar') %>
 
   <!-- Movie Upload Page -->
-  <div class="container mt-5 form-container w-50">
+  <div class="container form-container w-50 btm-up">
     <h2>Upload Movie</h2>
     <form id="uploadForm" method="post" action="/create" enctype="multipart/form-data">
+      
+      <% if (error) { %>
+        <div class="alert alert-danger" role="alert">
+          <%= success %> 
+          <%= error %> 
+        </div> 
+      <% } %>
       <div class="mb-3">
         <label for="movieName" class="form-label">Movie Name</label>
-        <input type="text" name="name" class="form-control" id="movieName" required>
+        <input type="text" name="title" class="form-control" id="movieName" required>
       </div>
       <div class="mb-3">
-        <label for="movieType" class="form-label">Movie Type</label>
-        <input type="text" name="type" class="form-control" id="movieType" required>
+        <label for="movieType" class="form-label">Genre</label>
+        <input type="text" name="genre" class="form-control" id="movieType">
+        <!-- help message -->
+        <div id="typeHelp" class="form-text">eg. Drama, Action, Romantic and etc.</div>
       </div>
       <div class="mb-3">
-        <label for="movieYear" class="form-label">Movie Year</label>
-        <input type="number" name="year" class="form-control" id="movieYear" required>
+        <label for="movieprice" class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" id="movieprice" required>
+      </div>
+      <div class="mb-3">
+        <label for="movieYear" class="form-label">Released Date</label>
+        <input type="Date" name="date" class="form-control" id="movieYear" required>
+      </div>
+      <div class="mb-3">
+        <label for="moviedesc" class="form-label">Description</label>
+        <textarea name="description" id="moviedesc" cols="95" rows="5"></textarea>
       </div>
       <div class="mb-3">
         <label for="movieCover" class="form-label">Movie Cover Image</label>
-        <input type="file" name="cover" class="form-control" id="movieCover" accept="image/*" required>
+        <input type="file" name="poster" class="form-control" id="movieCover" accept="image/*">
       </div>
       <button type="submit" class="btn btn-primary">Upload</button>
     </form>

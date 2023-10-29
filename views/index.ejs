@@ -8,7 +8,7 @@
         height: 200px;
         object-fit: cover;
       }
-      .mt-10, .Pagination{
+      .mt-10{
         margin-top: 80px;
       }
       .mbt-pagination{
@@ -26,35 +26,24 @@
       <h1 class="mt-10">Welcome to Movie Shop <%= result.lenght %></h1>
 
       <div class="row">
+        <% if(result.lenght === 0) { %>
+          <div class="card-body">
+            <h5 class="card-title">Nothing show here :)</h5>
+          </div>
+        <% } %> 
         <% result.forEach(function(movie, index){ %>
-          <% if(result.lenght === 0) { %>
-            <div class="card-body">
-              <h5 class="card-title">Nothing show here :)</h5>
-            </div>
-          <% } %> 
           <div class="col-md-3 mb-3">
             <div class="card">
-              <img src="movie_cover/<%= movie.cover%>" class="card-img-top" alt="Movie <%= index%>">
+              <img src="movie_cover/<%= movie.poster%>" class="card-img-top" alt="Movie <%= index%>">
               <div class="card-body">
-                <h5 class="card-title"><%= movie.name%></h5>
-                <p class="card-text">Price: $9.99</p>
+                <h5 class="card-title"><%= movie.title%></h5>
+                <p class="card-text">Price: <%= movie.price %> ETB</p>
                 <a href="movie/<%= movie.id%>" class="btn btn-primary">View</a>
               </div>
             </div>
           </div>
           <% }) %>
-        <% result.forEach(function(movie, index){ %>
-          <div class="col-md-3 mb-3">
-            <div class="card">
-              <img src="movie_cover/<%= movie.cover%>" class="card-img-top" alt="Movie <%= index%>">
-              <div class="card-body">
-                <h5 class="card-title"><%= movie.name%></h5>
-                <p class="card-text">Price: $9.99</p>
-                <a href="movie/<%= movie.id%>" class="btn btn-primary">View</a>
-              </div>
-            </div>
-          </div>
-          <% }) %>
+        
         <!-- Repeat the card blocks for other movies -->
       </div>
       <nav aria-label="Movie Pagination" class="mbt-pagination">

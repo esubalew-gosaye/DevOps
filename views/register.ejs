@@ -10,12 +10,12 @@
   <%- include('partials/navbar') %>
 
     <!-- Registration Page -->
-    <div class="container mt-5 w-50">
+    <div class="container btm-up w-50">
       <h2>Register</h2>
-      <form id="RegisterForm">
+      <form id="RegisterForm" action="/register" method="post" enctype="multipart/form-data">
         <div class="mb-3">
           <label for="Full Name" class="form-label">Full Name</label>
-          <input type="text" name="name" class="form-control" id="Full Name" required>
+          <input type="text" name="full_name" class="form-control" id="Full Name" required>
         </div>
         <div class="mb-3">
           <label for="Email" class="form-label">Email</label>
@@ -23,7 +23,11 @@
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password</label>
-          <input type="password" name="password" class="form-control" id="password" required>
+          <input type="password" name="password" minlength="4" class="form-control" id="password" required>
+        </div>
+        <div class="mb-3">
+          <label for="picture" class="form-label">Profile Picture</label>
+          <input type="file" name="picture" class="form-control" id="picture">
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
       </form>

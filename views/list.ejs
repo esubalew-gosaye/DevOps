@@ -10,25 +10,25 @@
   <%- include('partials/navbar') %>
 
   <!-- Movie List Page -->
-  <div class="container mt-4">
+  <div class="container btm-up">
     <h2>Movies</h2>
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Year</th>
-          <th>Cover</th>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>Release Date</th>
+          <th>Price</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody id="movieListBody">
         <% result.forEach(function(movie){ %>
           <tr>
-              <td><%= movie.name %></td>
-              <td><%= movie.type %></td>
-              <td><%= movie.year %></td>
-              <td><%= movie.cover %></td>
+              <td><%= movie.title %></td>
+              <td><%= movie.genre %></td>
+              <td><%= movie.date.toLocaleDateString('en-US', { day: 'numeric', month: 'numeric', year: 'numeric' }) %></td>
+              <td><%= movie.price %></td>
               <td>
                 <a href="/movie/<%= movie.id %>" class="btn btn-success btn-sm">View</a>
                 <a href="/update/<%= movie.id %>" class="btn btn-primary btn-sm">Edit</a>
